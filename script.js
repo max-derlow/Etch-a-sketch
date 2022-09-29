@@ -237,7 +237,8 @@ function draw(itemIndex, rainbowMode) {
     }
 }
 
-function erase(gridItem) {
+function erase(itemIndex) {
+    gridItem = document.querySelector(`[id='${itemIndex}']`)
     gridItem.style.backgroundColor = defaultColor;
 }
 
@@ -362,7 +363,7 @@ function handleInput(e) {
             //console.log("in draw mode");
             break;
         case Pencil.getEraseMode:
-            erase(this.id)
+            erase(this.id, false)
             //console.log("in erase mode");
             break;
         case Pencil.getRainbowMode:
@@ -382,4 +383,3 @@ function handleInput(e) {
 }
 
 generateGridItems();
-
